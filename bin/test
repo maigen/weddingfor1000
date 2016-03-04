@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+require 'pathname'
+
+# path to your application root.
+APP_ROOT = Pathname.new File.expand_path('../../',  __FILE__)
+
+Dir.chdir APP_ROOT do
+  begin
+    system "bin/rake ci RAILS_ENV=test"
+    exit $?.exitstatus
+  ensure
+    system "rm -rf public/assets"
+  end
+end

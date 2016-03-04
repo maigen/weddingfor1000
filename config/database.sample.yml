@@ -1,0 +1,19 @@
+login: &login
+  adapter: mysql2
+  database: weddingfor1000
+  username: root
+  password:
+  socket: /var/run/mysqld/mysqld.sock
+
+development:
+  <<: *login
+
+test: &TEST
+  <<: *login
+  database: weddingfor1000_test<%= ENV["TEST_ENV_NUMBER"] %>
+
+staging:
+  <<: *login
+
+production:
+  <<: *login
