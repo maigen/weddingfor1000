@@ -14,6 +14,7 @@ gem "uglifier"
 
 group :development, :test do
   gem "byebug"
+  gem "cucumber-rails", :require => false
 end
 
 group :development do
